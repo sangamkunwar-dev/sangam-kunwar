@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import BackgroundMusic from "@/components/BackgroundMusic";
 import CookieBanner from "@/components/CookieBanner";
-import "./globals.css"; 
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap", 
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 
   generator: "sangamkunwar",
 
-  // ✅ AdSense verification meta
+  // ✅ KEEP THIS (AdSense verification)
   other: {
     "google-adsense-account": "ca-pub-5849186110366340",
   },
@@ -75,12 +76,13 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#7b3fe4" />
 
-        {/* ✅ FIXED: Use RAW script (NO next/script) */}
-        <script
+        {/* ✅ BEST PRACTICE for Next.js */}
+        <Script
           async
+          strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5849186110366340"
           crossOrigin="anonymous"
-        ></script>
+        />
       </head>
 
       <body className={`${inter.className} font-sans antialiased`}>
