@@ -23,6 +23,7 @@ export default function Header() {
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
+    { label: "Blog", href: "#blog" },
   ]
 
   useEffect(() => {
