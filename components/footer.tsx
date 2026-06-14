@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image" // Import Image component
-import { Github, Linkedin, Mail, Phone, MapPin, ShieldCheck, FileText } from "lucide-react"
+import { Github, Linkedin, Mail, Phone, MapPin, ShieldCheck, FileText, Lock } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -88,8 +88,15 @@ export default function Footer() {
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>&copy; {currentYear} Sangam Kunwar. All rights reserved.</p>
           
-          {/* Privacy & Legal Section */}
-          <div className="flex items-center gap-6">
+          {/* Privacy, Legal & Webmail Section */}
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <Link 
+              href="/webmail" 
+              className="flex items-center gap-1.5 hover:text-primary transition-colors font-medium text-xs border border-border/60 rounded-md px-2 py-1 bg-muted/50"
+            >
+              <Lock size={12} className="text-blue-500" />
+              System Webmail
+            </Link>
             <Link 
               href="/privacy" 
               className="flex items-center gap-1.5 hover:text-primary transition-colors"
