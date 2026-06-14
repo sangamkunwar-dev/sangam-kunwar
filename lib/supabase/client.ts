@@ -16,5 +16,12 @@ if (!url || !key) {
   console.log("[Supabase] Client initialized");
 }
 
-// ✅ IMPORTANT: export as `supabase`
+// 
+// ✅ FIXED: Export a function named `createClient` so your imports don't break
+export const createClient = () => {
+  return createBrowserClient(url, key);
+};
+
+// 💡 Optional: If any older files still use `import { supabase }`, 
+// this line ensures they keep working too.
 export const supabase = createBrowserClient(url, key);
